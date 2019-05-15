@@ -61,10 +61,10 @@ public class Background {
   public void render(Graphics g) {
     g.drawImage(image, (int) x, (int) y, null);
     if (x < 0) {
-      g.drawImage(image, (int) x + Display.displaywidth - 100, (int) y, null);
+      g.drawImage(image, (int) x + Display.displaywidth, (int) y, null);
     }
     if (x > 0) {
-      g.drawImage(image, (int) x - Display.displaywidth - 100, (int) y, null);
+      g.drawImage(image, (int) x - Display.displaywidth, (int) y, null);
     }
     if (y < 0) {
       g.drawImage(image, (int) x, (int) y + Display.displayheight - 100, null);
