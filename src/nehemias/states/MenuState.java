@@ -30,7 +30,6 @@ public class MenuState extends State {
   private void setBackground() {
     try {
       bg = new Background("/textures/gamebackground.png", 1);
-      // bg.setVector(-.5, 0);
       bg.setVector(-0.5, 0);
 
     } catch (Exception e) {

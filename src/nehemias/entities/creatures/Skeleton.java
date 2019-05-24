@@ -37,6 +37,8 @@ public class Skeleton extends Creature {
     Skeleton.enemyXpos = (int) x;
     Skeleton.enemyYpos = (int) y;
     this.active = false;
+    playerXpos = Player.playerX;
+    playerYpos = Player.playerY;
 
 
     int anim_speed = 100;
@@ -70,6 +72,8 @@ public class Skeleton extends Creature {
 
     // Movement
     getInput();
+    playerXpos = Player.playerX;
+    playerYpos = Player.playerY;
 
     if ((pPrevX != playerXpos) || (pPrevY != playerYpos)) {
       // calculate the distance between the player and enemy
@@ -79,12 +83,10 @@ public class Skeleton extends Creature {
       pPrevY = playerYpos;
 
     }
-    if (currDist < 100 * 100) {
+    if (currDist < 200 * 200) {
       chasePlayer();
 
     }
-
-
 
     move();
 
@@ -157,8 +159,8 @@ public class Skeleton extends Creature {
 
     if (inventory.isActive())
       return;
-    playerXpos = Creature.playerX + 10;
-    playerYpos = Creature.playerY + 10;
+    playerXpos = Player.playerX + 10;
+    playerYpos = Player.playerY + 10;
     if (handler.getKeyManager().aUp) {
       attackup = true;
     }
@@ -219,8 +221,8 @@ public class Skeleton extends Creature {
   public int enemyDistance() {
     int difference, dx, dy = 0;
     // distance formula
-    dx = (int) Math.abs((int) playerXpos - (x));
-    dy = (int) Math.abs((int) playerYpos - (y));
+    dx = (int) Math.abs((int) Player.playerX - (x));
+    dy = (int) Math.abs((int) Player.playerY - (y));
     difference = (dx * dx) + (dy * dy);
 
     System.out.println("Distance betwen player and enemy = " + difference);

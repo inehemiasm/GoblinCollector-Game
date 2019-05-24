@@ -84,6 +84,23 @@ public class Inventory {
         true, Color.BLACK, Assets.font28);
   }
 
+  public void DisplayItems(Graphics g) {
+    for (int i = 0; i < inventoryItems.size(); i++) {
+      Item item = inventoryItems.get(i);
+      g.drawImage(item.getTexture(), invListCenterX + 150, invListCenterY + 40, invImageWidth,
+          invImageHeight, null);
+      Text.drawString(g, Integer.toString(item.getCount()), invListCenterX + 170, invListCenterY,
+          true, Color.BLACK, Assets.font28);
+
+    }
+
+    Item item = inventoryItems.get(selectedItem);
+    g.drawImage(item.getTexture(), invListCenterX + 150, invListCenterY + 20, invImageWidth,
+        invImageHeight, null);
+    Text.drawString(g, Integer.toString(item.getCount()), invListCenterX + 170, invListCenterY,
+        true, Color.BLACK, Assets.font28);
+  }
+
   // Inventory methods
 
   public void addItem(Item item) {
